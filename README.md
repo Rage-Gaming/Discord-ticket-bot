@@ -4,6 +4,7 @@
 
 ## Features:
 **1. Create Tickets:** Users can create a ticket with a specified reason, which will be sent to the admins for review.
+
 **2. Ticket Transcripts:** Admins can take a transcript of the ticket for documentation purposes.
 
 ## Getting Started
