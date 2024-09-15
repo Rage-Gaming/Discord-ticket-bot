@@ -88,8 +88,8 @@ module.exports = async (client) => {
                 })
             } else if (interaction.customId == "ticket_close_confirm") {
                 const channel = client.channels.cache.get(interaction.channel.id);
-                channel.send({
-                    content: `Ticket will be closed in 5 seconds`
+                interaction.reply({
+                    content: `Ticket will be closed in 5 seconds`,
                 });
                 setTimeout(() => {
                     channel.delete();
@@ -199,7 +199,7 @@ module.exports = async (client) => {
                 ]);
 
                 const sentMessage = await channel.send({
-                    content: `Support ticket by <@${interaction.user.id}> \n<@&1048119915707650118> <@&1130791882558025728> <@&981442795229306912>`,
+                    content: `Support ticket by <@${interaction.user.id}> `,
                     embeds: [
                         new EmbedBuilder()
                             .setAuthor({ name: `${process.env.ServerName} | Support Ticket`, iconURL: process.env.ServerLogo })
