@@ -1,21 +1,21 @@
 {
   "name": "discord-ticket-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "This bot allows server members to create support tickets with a reason, and admins can manage the tickets efficiently. Admins can also generate a transcript of the ticket for record-keeping.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rage-Gaming/discord-ticket-bot.git"
+    "url": "git+https://github.com/Rage-Gaming/Discord-ticket-bot.git"
   },
   "author": "Rage (chaos_rage)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rage-Gaming/discord-ticket-bot/issues"
+    "url": "https://github.com/Rage-Gaming/Discord-ticket-bot/issues"
   },
-  "homepage": "https://github.com/Rage-Gaming/discord-ticket-bot#readme",
+  "homepage": "https://github.com/Rage-Gaming/Discord-ticket-bot#readme",
   "dependencies": {
     "@discordjs/rest": "^2.4.0",
     "colors": "^1.4.0",
