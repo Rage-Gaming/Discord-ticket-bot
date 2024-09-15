@@ -1,0 +1,25 @@
+{
+  "name": "discord-ticket-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rage-Gaming/discord-ticket-bot.git"
+  },
+  "author": "Rage (chaos_rage)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rage-Gaming/discord-ticket-bot/issues"
+  },
+  "homepage": "https://github.com/Rage-Gaming/discord-ticket-bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^2.4.0",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.37.100",
+    "discord.js": "^14.16.2"
+  }
+}
