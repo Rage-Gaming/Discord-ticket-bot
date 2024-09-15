@@ -73,7 +73,7 @@ Use the /setupticket command for the initial setup.
 
 ## License
 
-**This project is licensed under the LGPL License. See the [LICENCE](https://github.com/Rage-Gaming/Discord-ticket-bot/blob/main/LICENCE.md). file for details.**
+**This project is licensed under the LGPL License. See the [LICENCE](https://github.com/Rage-Gaming/Discord-ticket-bot/blob/main/LICENSE). file for details.**
 
 ## Support
 **If you have any questions or need help, feel free to contact me on Discord: [Join Now](https://discord.gg/bDaYd2P9Vu).**
