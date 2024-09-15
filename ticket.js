@@ -95,52 +95,57 @@ module.exports = async (client) => {
                     channel.delete();
                 }, 5000);
             } else if (interaction.customId == "ticket_close_reject") {
-                interaction.reply({
-                    content: `${interaction.reference.messageId}`
-                })
-                console.log(interaction);
+                const message = await interaction.channel.messages.fetch(interaction.message.id);
+                await message.delete();
             } else if (interaction.customId == "ticket_transcript") {
                 if (!process.env.TranscriptChannelID) return interaction.reply({
                     content: `Transcript channel is not set up. Please set it up in the env file.`,
                     ephemeral: true,
                 });
-                if (interaction.user.cache.has(process.env.AdminRoleID)) {
-                    const channel = interaction.channel;
+                const member = await interaction.guild.members.fetch(interaction.user.id);
+                const hasAdminRole = member.roles.cache.has(process.env.AdminRoleID);
 
-                    const attachment = await createTranscript(channel, {
-                        limit: -1,
-                        returnType: 'attachment',
-                        filename: `${interaction.channel.name}.html`,
-                    });
-
-                    const anotherChannel = interaction.guild.channels.cache.get(process.env.TranscriptChannelID);
-                    anotherChannel.send({
-                        content: `Ticket transcript taken by <@${interaction.user.id}>`,
-                        embeds: [
-                            new EmbedBuilder()
-                                .setTitle('DHRUVAM Transcript')
-                                .setAuthor({ name: 'DHRUVAM', iconURL: process.env.ServerLogo })
-                                .setColor(5763719)
-                                .setThumbnail(process.env.Thumbnail)
-                                .setFooter({ text: 'DHRUVAM', icon_url: process.env.ServerLogo })
-                                .addFields([
-                                    {
-                                        name: '\n\u200b\nTicket Name',
-                                        value: `\`\`\`${interaction.channel.name}\`\`\``,
-                                        inline: false
-                                    },
-
-                                ])
-                                .setTimestamp(new Date())
-                        ],
-                        files: [attachment],
-                    });
-
-                    await interaction.reply({
-                        content: `Transcript has been sent to <#${process.env.TranscriptChannelID}>`,
+                if (!hasAdminRole) {
+                    return interaction.reply({
+                        content: `You don't have the privilege to use this command.`,
                         ephemeral: true,
                     });
                 }
+                const channel = interaction.channel;
+
+                const attachment = await createTranscript(channel, {
+                    limit: -1,
+                    returnType: 'attachment',
+                    filename: `${interaction.channel.name}.html`,
+                });
+
+                const anotherChannel = interaction.guild.channels.cache.get(process.env.TranscriptChannelID);
+                anotherChannel.send({
+                    content: `Ticket transcript taken by <@${interaction.user.id}>`,
+                    embeds: [
+                        new EmbedBuilder()
+                            .setTitle('DHRUVAM Transcript')
+                            .setAuthor({ name: 'DHRUVAM', iconURL: process.env.ServerLogo })
+                            .setColor(5763719)
+                            .setThumbnail(process.env.Thumbnail)
+                            .setFooter({ text: 'DHRUVAM', icon_url: process.env.ServerLogo })
+                            .addFields([
+                                {
+                                    name: '\n\u200b\nTicket Name',
+                                    value: `\`\`\`${interaction.channel.name}\`\`\``,
+                                    inline: false
+                                },
+
+                            ])
+                            .setTimestamp(new Date())
+                    ],
+                    files: [attachment],
+                });
+
+                await interaction.reply({
+                    content: `Transcript has been sent to <#${process.env.TranscriptChannelID}>`,
+                    ephemeral: true,
+                });
             }
 
         } else if (interaction.isModalSubmit()) {

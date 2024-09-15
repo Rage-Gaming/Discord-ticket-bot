@@ -14,10 +14,6 @@ const client = new Client({
   ],
 });
 
-client.emit("error", (error) => {
-    console.error(`${error}`.red);
-});
-
 client.on("ready", async () => {
   console.clear();
   console.log(`Bot ${client.user.tag} is now online`.green);
