@@ -72,6 +72,14 @@ Use the /setupticket command for the initial setup.
     - Verify that the bot has the required permissions.
     - Check if the bot is online and connected to the correct server.
 
+## Screenshots
+
+<img src = ".github/images/1.png">
+
+<img src = ".github/images/2.png">
+
+<img src = ".github/images/3.png">
+
 ## License
 
 **This project is licensed under the LGPL License. See the [LICENCE](https://github.com/Rage-Gaming/Discord-ticket-bot/blob/main/LICENSE). file for details.**
